@@ -1,0 +1,447 @@
+<html lang="en">
+<head>
+    <title>Dell Inc.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="alert/dist/sweetalert-dev.js"></script>
+  	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+    <script>
+    	$( document ).ready(function() {
+			var a = '{{ data[0][13] }}';
+			//window.alert(a);
+			swal("This transaction is "+a," ", "warning");
+		});
+		function validateForm() {
+			var deviceID = document.forms["myForm"]["device"].value;
+			var flag = 0;
+			if (deviceID < 1 || deviceID > 4) {
+				flag = 1;
+				alert("Device id must be between 1 and 4");
+			}
+			var mid = document.forms["myForm"]["merchant"].value;
+			var length_merchID = getLength(mid);
+			mid = Number(mid);
+			if(length_merchID != 10 || !Number.isInteger(mid) ){
+				flag = 1;
+				alert("Merchant id must be a 10 digit number");	
+			}
+			var value = document.forms["myForm"]["avgtrans"].value;
+			if(isNaN(value)){
+				flag = 1;
+				alert("Avg no of transac must be a number");
+			}
+			
+			var amount = document.forms["myForm"]["transact"].value;
+			if(isNaN(amount)){
+				flag = 1;
+				alert("Transaction amt must be a number");
+			}
+			var val = document.forms["myForm"]["decline"].value;
+				val = parseInt(val);
+				if(!(val == 0 || val == 1)){
+					flag = 1;
+					alert("Transac declined must be 0 or 1");
+			}		
+			
+			var tno = document.forms["myForm"]["tnodec"].value;
+			tno = Number(tno);
+			if(!Number.isInteger(tno)){
+				flag = 1;
+				alert("Transac declined must be an integer");
+				
+			}
+			var forg = document.forms["myForm"]["isForg"].value;
+				forg = parseInt(forg);
+				if(!(forg == 0 || forg == 1)){
+					flag = 1;
+					alert("Transac is foreign must be 0 or 1");
+			}	
+			
+			var risk = document.forms["myForm"]["isRisk"].value;
+					risk = parseInt(risk);
+				if(!(risk == 0 || risk == 1)){
+					flag = 1;
+					alert("Transaction is risky must be 0 or 1");
+			}
+			if(flag == 0)
+				return true;
+			return false;
+	}		
+			
+		function getLength(val){
+				return val.length;
+	}	
+			
+		function tabledisp(){
+				//e.preventDefault();
+				
+				//document.getElementById("table1").style.display="block";
+				
+				
+	}
+  
+  </script>
+  
+</head>
+
+<style>
+body 
+{
+	position: relative;
+}
+
+body::after 
+{
+	content: '';
+	display: block;
+	height: 130px; 
+}
+.footer 
+{
+	position:absolute;
+    height:130px;
+    left: 0;
+	right:0;
+    bottom: 0;
+    
+   
+}
+.footer1
+{
+	width:100%;
+	height:50px;
+	bottom: 0;
+	left: 0;
+	right:0;
+    background-color:#eeeeee;
+   
+    color: white;
+}
+.footer2
+{
+	
+	left: 0;
+	height:80px;
+	bottom: 0;
+	width:100%;
+	background-color:#007db8;
+	border-bottom: 1px solid #0087c7;
+   
+	color: white;
+}
+.navbar-inverse
+{
+	background-color:#0085C3;
+	outline:none;
+	border: none;
+	height:12%;
+}
+
+input[type=text]
+{
+    
+    padding: 12px 20px;
+    margin: 8px 0;
+    
+	background:transparent;
+    outline: none;
+    border: none;
+	border-bottom: 1px solid black;
+    
+}
+.navbar-nav about-links
+{
+	position: relative;
+    background-color: transparent;
+    width: auto;
+    z-index: 140;
+}
+.navbar-nav copy-links
+{
+	position: relative;
+    background-color: transparent;
+    width: auto;
+    z-index: 140;
+}
+.navbar-nav about-links li
+{
+	padding:6px;
+} 
+.navbar-nav copy-links li
+{
+	padding:6px;
+} 
+.nav > li 
+{
+    position: relative;
+    display: block;
+}
+.navbar-nav about-links li a
+{
+	padding-right: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #444 !important;
+    font-weight: 400;
+    font-family: 'roboto',Arial,Helvetica,sans-serif;
+} 
+.navbar-nav copy-links li a
+{
+	padding-right: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    
+    font-weight: 400;
+    font-family: 'roboto',Arial,Helvetica,sans-serif;
+} 
+.about-links > li > a 
+{
+    position: relative;
+	color: #444 !important;
+    display: block;
+    padding: 10px 15px;
+}
+.copy-links > li > a 
+{
+    position: relative;
+	color: #ffffff !important;
+	
+    display: block;
+    padding: 10px 15px;
+}
+copy-links > li > a:hover
+{
+	background:#007db8;
+	opacity: 0;
+}
+button 
+{
+    background-color: #0f6eca;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+	border-radius:6%;
+    
+}
+
+button:hover 
+{
+    opacity: 0.8;
+	border-color: #004b63;
+}
+</style>
+
+
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+		  <a class="navbar-brand" href="#"><img src="../static/image3.png" style="margin-left:100px;" ></a>
+	</div>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#" style="color:white;"><span class="glyphicon glyphicon-user"></span> Hi Admin !!</a></li>
+      <li><a href="/logout" style="color:white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <!--<h2>Fraud Detection</h2>-->
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+	
+	{% block body %}{% endblock %}
+	  <center><h2 style="font-family: roboto, Arial, Helvetica, sans-serif;">Payment Fraud Detection</h2></center>	
+	  <!--<form action="/showtrans">
+			<center><button type="submit" onclick="alert("Fraud percentage is "+data[5]);" class="btn btn-primary" id="btn1">Transaction History</button></center>
+	  </form>-->
+	  
+	  <div class="table">          
+		  <table class="table" id="table1">
+			<thead>
+			  <tr>
+				<th>t_id</th>
+				<th>time</th>
+				<th>device_id</th>
+				<th>merchant_id</th>
+				<th>aatd</th>
+				<th>trans_amt</th>
+				<th>is_decline</th>
+				<th>tnodecperday</th>
+				<th>isForeign</th>
+				<th>isRiskCount</th>
+				<th>isFraud1</th>
+				<th>isFraud2</th>
+				<th>isFraud3</th>
+				<th>Result</th>
+			  </tr>
+			</thead>
+			<tbody>
+			{% for row in data %}
+			  <tr>
+					{% for d in row %}
+						<td>{{ d }}</td>
+					{% endfor %}
+			  </tr>
+			{% endfor %}
+				
+			  
+			  
+			</tbody>
+		  </table>
+		  
+		  
+		  
+	</div>
+		<h3>Enter new Details:</h3>
+		<form  action="/saveval" name="myForm" onsubmit="return validateForm()" method="post">
+			<div class="row">
+				<div class="col-md-3">
+					
+					<input type="text" id="device" placeholder="device_id" name="device" required>
+					
+				</div>
+				<div class="col-md-3">
+					
+					<input type="text" id="merchant" placeholder="merch_id" name="merchant" required>
+					
+				</div>
+				<div class="col-md-3">
+					
+					<input type="text" id="avgtrans" placeholder="avg transac" name="avgtrans" required>
+					
+				</div>
+				<div class="col-md-3">
+					
+					<input type="text" id="transact" placeholder="trans_amt" name="transact" required>
+					
+				</div>
+			 </div>
+			 
+			 <div class="row">
+				<div class="col-md-3">
+					
+					<input type="text" id="decline" placeholder="is_declined" name="decline" required>
+					
+				</div>
+				<div class="col-md-3">
+					
+					<input type="text" id="tnodec" placeholder="tnodecperday" name="tnodec" required>
+					
+				</div>
+				<div class="col-md-3">
+					
+					<input type="text" id="isForg" placeholder="isForeignTransaction" name="isForg" required>
+					
+				</div>
+				<div class="col-md-3">
+					
+					<input type="text" id="isRisk" placeholder="isHighRiskCountry" name="isRisk" required>
+					
+				</div>
+			 </div>
+			  
+			
+			
+			
+			 <br>
+			  
+			<center><div class="g-recaptcha" data-sitekey="6LfdSmoUAAAAAK_rBbUsanvu-N0Zufbye1dKUk3p"></div></center>
+			
+			<center><button type="submit" class="btn btn-primary">Submit</button></center>
+			
+	   </form>
+	
+</div>
+</body>
+<br><br>
+<div class="footer">
+	  <!--<div class="row">-->
+	  <div class="footer1">
+		<div class="container">
+			<div class="nav navbar-nav about-links">
+				  <li>
+					<a href="#!">About Dell</a>
+				  </li>
+				  <li>
+					<a href="#!">Career</a>
+				  </li>
+				  <li>
+					<a href="#!">Community</a>
+				  </li>
+				  <li>
+					<a href="#!">Events</a>
+				  </li>
+				  <li>
+					<a href="#!">Partner Program</a>
+				  </li>
+				  <li>
+					<a href="#!">Premier</a>
+				  </li>
+				  <li>
+					<a href="#!">Dell Technologies</a>
+				  </li>
+			</div>
+			
+		</div>
+		</div>
+		<div class="footer2">
+	  <!--<div class="row">-->
+			<div class="container">
+				<div class="nav navbar-nav copy-links">
+					  <li>
+						<a href="#!">2018 Dell</a>
+					  </li>
+					  <li>
+						<a href="#!">Legal and Regulatory</a>
+					  </li>
+					  <li>
+						<a href="#!">Site Terms</a>
+					  </li>
+					  <li>
+						<a href="#!">Terms of Sale</a>
+					  </li>
+					  <li>
+						<a href="#!">Unresolved Issues</a>
+					  </li>
+					  <li>
+						<a href="#!">Suscribe/Unsuscribe</a>
+					  </li>
+					  <li>
+						<a href="#!">Privacy Statement</a>
+					  </li>
+				</div>
+				
+			</div>
+		</div>	
+	
+			
+
+				
+		
+		
+		
+	  <!--</div>-->
+</div>
+
+
+
+
+</html>

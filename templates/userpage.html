@@ -1,0 +1,282 @@
+<html>
+<head>
+
+  <title>Test Cases</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+		function check1()
+		{
+			document.getElementById("img1").style.filter="grayscale(100%)";
+			
+		}
+		function check2()
+		{
+			document.getElementById("img2").style.filter="grayscale(100%)";
+			
+		}
+		function check3()
+		{
+			document.getElementById("img3").style.filter="grayscale(100%)";
+			
+		}
+  </script>
+  
+  
+</head>
+<style>
+	
+body 
+{
+	position: relative;
+}
+
+body::after 
+{
+	content: '';
+	display: block;
+	height: 130px; 
+}
+.footer 
+{
+	position:absolute;
+    height:130px;
+    left: 0;
+	right:0;
+    bottom: 0;
+    
+   
+}
+.footer1
+{
+	width:100%;
+	height:50px;
+	bottom: 0;
+	left: 0;
+	right:0;
+    background-color:#eeeeee;
+   
+    color: white;
+}
+.footer2
+{
+	
+	left: 0;
+	height:80px;
+	bottom: 0;
+	width:100%;
+	background-color:#007db8;
+	border-bottom: 1px solid #0087c7;
+   
+	color: white;
+}
+
+.navbar-inverse
+{
+ background-color:#0085C3;
+ outline:none;
+ border: none;
+ height:12%;
+}
+
+.navbar-nav about-links
+{
+	position: relative;
+    background-color: transparent;
+    width: auto;
+    z-index: 140;
+}
+.navbar-nav copy-links
+{
+	position: relative;
+    background-color: transparent;
+    width: auto;
+    z-index: 140;
+}
+.navbar-nav about-links li
+{
+ padding:6px;
+} 
+.navbar-nav copy-links li
+{
+ padding:6px;
+} 
+.nav > li {
+    position: relative;
+    display: block;
+}
+.navbar-nav about-links li a
+{
+	padding-right: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #444 !important;
+    font-weight: 400;
+    font-family: 'roboto',Arial,Helvetica,sans-serif;
+} 
+.navbar-nav copy-links li a
+{
+	padding-right: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    
+    font-weight: 400;
+    font-family: 'roboto',Arial,Helvetica,sans-serif;
+} 
+.about-links > li > a {
+    position: relative;
+	color: #444 !important;
+    display: block;
+    padding: 10px 15px;
+}
+.copy-links > li > a {
+    position: relative;
+	color: #ffffff !important;
+	
+    display: block;
+    padding: 10px 15px;
+}
+copy-links > li > a:hover
+{
+	background:transparent;
+	opacity: 0;
+}
+.imgButton{
+  text-align:center;
+}
+</style>
+
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#"><img src="../static/image3.png" style="margin-left:100px;" ></a>
+		</div>
+		
+		
+	  <ul class="nav navbar-nav navbar-right">
+		<li><a href="#" style="color:white;"><span class="glyphicon glyphicon-user"></span> Hi Admin !!</a></li>
+		<li><a href="/logout" style="color:white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+	</ul>
+  </div>
+	  
+	</nav>
+	
+	<center><h2>Welcome to Dell Inc.</h2></center>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+						<div class="imgContainer">
+							<form action="/cost1" method="POST">	
+								<input type="hidden" name="laptop" value="60000">
+								<input type="image" class="img-responsive" src="../static/xps15.jpg">
+								<h3 class="text-center">Dell XPS 15</h3>
+								<h6 class="text-center">Rs 76,000</h6>
+							</form>	
+								
+						</div>
+			</div>
+			<div class="col-md-4">
+						<div class="imgContainer">
+								
+								<form action="/cost2" method="POST">	
+									<input type="hidden" name="server" value="50000">
+									<input type="image" class="img-responsive" src="../static/server.jpg">
+									<h3 class="text-center">Dell PowerEdge Server</h3>
+									<h6 class="text-center">Rs 8,00,000</h6>
+								</form>	
+						</div>
+			</div>
+			<div class="col-md-4">
+						<div class="imgContainer">
+								<form action="/cost3" method="POST">	
+									<input type="hidden" name="mouse" value="40000">
+									<input type="image" class="img-responsive" src="../static/mouse.jpg">
+									<h3 class="text-center">Dell Mouse</h3>
+									<h6 class="text-center">Rs 6,000</h6>
+								</form>	
+						</div>
+			</div>
+		</div>
+		<br><br><br><br>
+		<!--<form action="">
+			<center><button type="submit" onclick="check3()" class="btn btn-primary">Pay Now<button><center>
+		</form>-->
+	</div>	
+</body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="footer">
+	  <!--<div class="row">-->
+	<div class="footer1">
+		<div class="container">
+			<div class="nav navbar-nav about-links">
+				  <li>
+					<a href="#!">About Dell</a>
+				  </li>
+				  <li>
+					<a href="#!">Career</a>
+				  </li>
+				  <li>
+					<a href="#!">Community</a>
+				  </li>
+				  <li>
+					<a href="#!">Events</a>
+				  </li>
+				  <li>
+					<a href="#!">Partner Program</a>
+				  </li>
+				  <li>
+					<a href="#!">Premier</a>
+				  </li>
+				  <li>
+					<a href="#!">Dell Technologies</a>
+				  </li>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer2">
+	  <!--<div class="row">-->
+			<div class="container">
+				<div class="nav navbar-nav copy-links">
+					  <li>
+						<a href="#!">2018 Dell</a>
+					  </li>
+					  <li>
+						<a href="#!">Legal and Regulatory</a>
+					  </li>
+					  <li>
+						<a href="#!">Site Terms</a>
+					  </li>
+					  <li>
+						<a href="#!">Terms of Sale</a>
+					  </li>
+					  <li>
+						<a href="#!">Unresolved Issues</a>
+					  </li>
+					  <li>
+						<a href="#!">Suscribe/Unsuscribe</a>
+					  </li>
+					  <li>
+						<a href="#!">Privacy Statement</a>
+					  </li>
+				</div>
+				
+			</div>
+	</div>	
+	
+			
+
+				
+		
+		
+		
+	  <!--</div>-->
+</div>
+
+</html>  
